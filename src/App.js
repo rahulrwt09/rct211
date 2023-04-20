@@ -1,9 +1,9 @@
-
+import Login from "./Component/Login";
 import {Counter} from "./Component/Counter"
 function App() {
   return (
     <div className="App">
-      <Counter/>
+    <Login/>
     </div>
   );
 }
