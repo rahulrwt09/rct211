@@ -1,13 +1,12 @@
-import useFetch  from "./Component/fetchh";
-
-
+import './App.css'
+import { PinTab } from './Component/PinTab';
 function App() {
-  let data=useFetch("https://reqres.in/api/users?page=2");
-    console.log(data);
+
+
   return (
     <div className="App">
- 
-
+      <h2>Genric component</h2>
+     <PinTab  length={5} maxchar={1} />
     </div>
   );
 }
