@@ -7,16 +7,36 @@ export const PinTab =({length,maxchar})=>{
   console.log(inputRef)  
   const handelfocus= (e, index)=>{
   if(e.target.value>=maxchar && index<length-1){
-    inputRef.current[index+1].focus();
+    inputRef.current[index+ 1].focus();
   }
   }
+  
+   const backspace= (e,index)=>{
+    if(e.target.value.length===0 && index>0){
+        inputRef.current[index-1].focus();
+    }
+   }
+
+  const keyhandel= (e,index)=>{
+    
+    if(e.keyCode===8){
+       backspace(e,index);
+    }
+    else{
+        handelfocus(e,index)
+    }
+  };
+
  return(
         <div>
             {
     pinlength.map((_,index)=>{return <input ref={(e)=>{
        inputRef.current[index]=e;
     }} key={index} maxLength={maxchar} 
-    onChange={(e)=>handelfocus(e, index)} />
+    
+
+    onKeyUp={(e)=>keyhandel(e,index)}
+    />
     })     
             }
         </div>
